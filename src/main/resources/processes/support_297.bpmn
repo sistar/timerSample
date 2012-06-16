@@ -23,11 +23,18 @@
       <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:serviceTask>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="ServiceTask_1" targetRef="ExclusiveGateway_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="ServiceTask_1" targetRef="sid-25B68F07-9ACC-440E-B9B1-97171A63A046"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_7" sourceRef="ServiceTask_1" targetRef="ExclusiveGateway_1"/>
     <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="ExclusiveGateway_1" targetRef="IntermediateCatchEvent_1">
       <bpmn2:conditionExpression id="FormalExpression_3">#{counter&lt;=15}</bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
-    <bpmn2:intermediateCatchEvent id="IntermediateCatchEvent_1" name="wait">
+
+      <bpmn2:intermediateThrowEvent id="sid-25B68F07-9ACC-440E-B9B1-97171A63A046" name="BusinessState=&#xA;Bestelleingang;TaskState=2">
+          <bpmn2:extensionElements>
+              <activiti:executionListener delegateExpression="#{auditStateListener}" event="start"/>
+          </bpmn2:extensionElements>
+      </bpmn2:intermediateThrowEvent>
+      <bpmn2:intermediateCatchEvent id="IntermediateCatchEvent_1" name="wait">
       <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_1">
