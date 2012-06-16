@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" lang="de">
+
+<h:body>
+    <ui:composition template="layout/main.xhtml">
+
+        <ui:define name="title">Overview</ui:define>
+
+        <ui:define name="content">
+
+            <h1>Herzlich Willkommen</h1>
+
+            <p>Auf dieser und den folgenden Seiten finden Sie die Benutzungsoberfläche für die Verwaltung aller erforderlichen Benutzerinteraktionen im Rahmen der TimerTest-Prozesse.</p>
+
+            <h2>Bereitgestellte Prozesse</h2>
+
+            <p>Die folgenden Prozesse sind aktuell auf dem Server in der vorliegenden Activiti-Instanz bereitgestellt:</p>
+
+            <h:dataTable value="#{processList.list}" var="process" styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">Prozessschlüssel</f:facet>
+                    <h:outputText value="#{process.key}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Prozessname</f:facet>
+                    <h:outputText value="#{process.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Version</f:facet>
+                    <h:outputText value="#{process.version}"/>
+                </h:column>
+            </h:dataTable>
+
+        </ui:define>
+
+    </ui:composition>
+</h:body>
+
+</html>

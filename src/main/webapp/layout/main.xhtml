@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" lang="de">
+
+<h:head>
+    <meta charset="utf-8"/>
+    <title><ui:insert name="title"/> - WASABI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <h:outputStylesheet library="css" name="bootstrap.css"/>
+    <h:outputStylesheet library="css" name="freenet.css"/>
+    <h:outputStylesheet library="css" name="bootstrap-responsive.css"/>
+</h:head>
+
+<h:body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="overview.faces">WASABI</a>
+
+                <div class="nav-collapse">
+
+                    <ui:include src="menu.xhtml"/>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="span12">
+
+                <ui:insert name="content"/>
+
+            </div>
+        </div>
+
+        <hr/>
+
+        <footer>
+            <p>© 2012 by freenet AG</p>
+        </footer>
+    </div>
+
+    <h:outputScript library="js" name="jquery.js"/>
+    <h:outputScript library="js" name="bootstrap.js"/>
+</h:body>
+
+</html>

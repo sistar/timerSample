@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" lang="de">
+
+<h:body>
+    <ui:composition template="layout/main.xhtml">
+
+        <ui:define name="title">Timer Prozess starten</ui:define>
+
+        <ui:define name="content">
+
+            <h1>Timer Prozess startenl</h1>
+
+            <p>Diese Maske erlaubt es eine Prozessinstanz der support-297 anzustoßen.</p>
+
+            <h:form styleClass="form-horizontal">
+
+                <h:messages styleClass="alert alert-error"/>
+
+                <fieldset>
+                    <legend>Timer</legend>
+
+                    <!-- timerName -->
+                    <div class="control-group">
+                        <h:outputLabel for="timerBean-timerEntity-name" styleClass="control-label" value="Name"/>
+
+                        <div class="controls">
+                            <h:inputText styleClass="input-xlarge" id="timerBean-timerEntity-name"
+                                         value="#{timerBean.timerEntity.name}"/>
+
+                            <p class="help-block">Name des Timers</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <h:commandButton value="Prozess starten" styleClass="btn btn-primary"
+                                         action="#{timerBean.startProcess}"/>
+                    </div>
+
+                    <div class="control-group">
+                        Prozess-ID:
+                        <h:outputText value="#{timerBean.processInstance.id}"/>
+                    </div>
+
+                </fieldset>
+
+            </h:form>
+
+        </ui:define>
+
+    </ui:composition>
+</h:body>
+
+</html>
